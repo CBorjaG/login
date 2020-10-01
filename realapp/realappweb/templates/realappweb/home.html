@@ -1,0 +1,41 @@
+{% extends 'realappweb/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+	<!--article-->
+		<article>
+			<section class="main">
+				<h3>Sitio de Administración</h3><!--usar jquery-->
+				<p>
+					Turismo Real dispone mediante este sistema web la administración de departamentos y clientes de forma online,
+					para así facilitar, agilizar gestiones y consultas correspondientes al área de Administración. 
+					
+				</p>
+				
+			</section>
+		</article>
+
+		<!--aside-->
+		<aside>
+			<section id="derindex">
+							
+				<h3><img src="{% static 'realappweb/img/punto.png' %}" align="left,center" width="20">Mantención departamentos</h3>
+					<p>
+						Puedes actualizar la Información de departamentos desde el módulo de administración de departamentos.
+					</p>
+					<h3><img src="{% static 'realappweb/img/punto.png' %}" align="left,center" width="20">Mantención clientes</h3>
+						<p>
+							Contamos con la opción para poder gestionar clientes, para la creación de usuarios y actualización de Información.
+						</p>
+						<h3><img src="{% static 'realappweb/img/punto.png' %}" align="left,center" width="20">Administración</h3>
+						<p>
+							Puedes acceder a la gestión reportes y estadísticas generadas.
+						</p>
+						</a><br><!--<a href="{% url 'home' %}" class="leer-mas">Más Información-->
+			</section>
+		</aside>
+
+	
+ 
+{% endblock contenido %}

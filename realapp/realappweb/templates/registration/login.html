@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Turismo Real</title>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'realappweb/css/style.css' %}">
+		<script type="text/javascript" src="{% static 'realappweb/js/jquery-3.4.1.js' %}"></script>
+		<link  rel="stylesheet" href="{% static 'realappweb/css/bootstrap.min.css' %}">
+		<script src="{% static 'realappweb/js/bootstrap.min.js' %}"></script>
+		<!--icono-->
+		<link rel="icon" type="image/ico" href="{% static 'realappweb/img/icono.ico' %}" />
+    <title>Login</title>
+</head>
+<body>
+    <header>
+           <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="main-header">
+            <div class="container" >
+            <img src="{% static 'realappweb/img/logo.png' %}">
+            <a class="navbar-brand"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            {% if perms.prueba.can_edit %}
+            {% if user.prueba.is_authenticated %}
+            <li><a href="#">Usuario: {{user.username}}</a></li>
+            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+           
+            
+            {% else %}
+            {% if perms.claudia.can_edit %}
+            {% if user.claudia.is_authenticated %}
+            <li><a href="#">Usuario: {{user.username}}</a></li>
+            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+        <div class="mx-auto" style="width: 200px;">
+            <h3> Iniciar Sesión </h3>
+            <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+            {{ form.as_table }}
+            
+            </table>
+            <div class="mx-auto" style="width: 300px;">
+            <a href="{% url 'home' %}">Olvidé mi contraseña</a>
+            </div>
+            <input type="submit" value="Iniciar Sesión">
+            </form>
+        </div>
+<div>
+    <p></p>
+    <br></br>
+</div>
+
+
+    <footer id="main-footer">
+        <p>&copy; 2020 RealApp</p>
+    </footer> <!-- / #main-footer -->
+</body>
+</html>
